@@ -9,6 +9,7 @@
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.2d.tilemap.extras": "6.0.2",
     "com.unity.2d.tooling": "1.0.3",
+    "com.unity.addressables": "2.9.1",
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.device-simulator.devices": "1.0.1",
     "com.unity.ide.rider": "3.0.40",
