@@ -5,30 +5,7 @@ using UnityEngine;
 
 public static class LogService
 {
-    private static Dictionary<Type, ILogger> loggers;
-    public static ILogger GetLogger<T>() where T : ILogger, new()
-    {
-        loggers ??= new Dictionary<Type, ILogger>
-            {
-                { typeof(T), new T() }
-            };
-
-        if (!loggers.ContainsKey(typeof(T)))
-        {
-            loggers.Add(typeof(T), new T());
-        }
-
-        return loggers[typeof(T)];
-
-    }
-
-    public static ILogger Default => GetLogger<UnityLogger>();
-
-    public static void Log(string message) => Default.LogInfo(message);
-    public static void LogWarning(string message) => Default.LogWarning(message);
-    public static void LogError(string message) => Default.LogError(message);
-
-    public static void LogWithDetails(
+    public static void Log(
         string message,
         [CallerMemberName] string memberName = "",
         [CallerFilePath] string filePath = "",
@@ -37,7 +14,7 @@ public static class LogService
         Debug.Log($"[{System.IO.Path.GetFileName(filePath)}:{lineNumber} - {memberName}] {message}");
     }
 
-    public static void LogWarningWithDetails(
+    public static void LogWarning(
         string message,
         [CallerMemberName] string memberName = "",
         [CallerFilePath] string filePath = "",
@@ -46,7 +23,7 @@ public static class LogService
         Debug.LogWarning($"[{System.IO.Path.GetFileName(filePath)}:{lineNumber} - {memberName}] {message}");
     }
 
-    public static void LogErrorWithDetails(
+    public static void LogError(
         string message,
         [CallerMemberName] string memberName = "",
         [CallerFilePath] string filePath = "",
