@@ -1,34 +1,67 @@
 fileFormatVersion: 2
-guid: f89baa17ffa6cfb42b8f52484fa22573
+guid: 26d5670cc7fcb1046915678a974b77ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8962558907412169345
-    second: player-table-20-24_0
+      213: -5808159861266587446
+    second: tile-map_0
   - first:
-      213: 1045212678293254089
-    second: player-table-20-24_1
+      213: -7814612430403319112
+    second: tile-map_1
   - first:
-      213: 4501676538805067100
-    second: player-table-20-24_2
+      213: 6829542376464487224
+    second: tile-map_2
   - first:
-      213: 3459188435489092469
-    second: player-table-20-24_3
+      213: 6381185412597049613
+    second: tile-map_3
   - first:
-      213: 6266869778978718119
-    second: player-table-20-24_4
+      213: -4820012145777058953
+    second: tile-map_4
   - first:
-      213: 787993918035931979
-    second: player-table-20-24_5
+      213: -7372984094410425394
+    second: tile-map_5
   - first:
-      213: 1303401936847534546
-    second: player-table-20-24_6
+      213: -5903929624350426206
+    second: tile-map_6
   - first:
-      213: 2697723300229354780
-    second: player-table-20-24_7
+      213: 7991172513215235600
+    second: tile-map_7
   - first:
-      213: -2137371966159113468
-    second: player-table-20-24_8
+      213: -5616675915764807014
+    second: tile-map_8
+  - first:
+      213: -8622262641625280068
+    second: tile-map_9
+  - first:
+      213: 4905707547679177386
+    second: tile-map_10
+  - first:
+      213: 5765864831629687522
+    second: tile-map_11
+  - first:
+      213: -8586047504823657989
+    second: tile-map_12
+  - first:
+      213: 2352735027807016686
+    second: tile-map_13
+  - first:
+      213: 1865259459127429850
+    second: tile-map_14
+  - first:
+      213: 7595408985470357798
+    second: tile-map_15
+  - first:
+      213: 8060384709441359110
+    second: tile-map_16
+  - first:
+      213: -2462725785444429286
+    second: tile-map_17
+  - first:
+      213: -3807920449708568230
+    second: tile-map_18
+  - first:
+      213: 3829364293482307810
+    second: tile-map_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,10 +105,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,221 +183,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_0
+      name: tile-map_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 20
-        height: 24
+        x: 10
+        y: 602
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4e12a339898ca494c81cbc739a609806
-      internalID: -1638628487
+      spriteID: ac0e58e0165456fa0800000000000000
+      internalID: -5808159861266587446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_1
+      name: tile-map_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 20
-        height: 24
+        x: 315
+        y: 602
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 80f836cd6c0195b459ad849ac1f88453
-      internalID: -99494149
+      spriteID: 8ba457ce56bec8390800000000000000
+      internalID: -7814612430403319112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_2
+      name: tile-map_2
       rect:
         serializedVersion: 2
-        x: 40
-        y: 0
-        width: 20
-        height: 24
+        x: 620
+        y: 602
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 08c22776211d36f4ebb14db65d18d96c
-      internalID: 172614417
+      spriteID: 83394af5b9867ce50800000000000000
+      internalID: 6829542376464487224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_3
+      name: tile-map_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 20
-        height: 24
+        x: 925
+        y: 602
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4fff89bad05d76347a4c870aaa89e1d0
-      internalID: -137638304
+      spriteID: d0960c3e2568e8850800000000000000
+      internalID: 6381185412597049613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_4
+      name: tile-map_4
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 20
-        height: 24
+        x: 10
+        y: 290
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 264bae372f848c54bac2958982939ba6
-      internalID: -540604337
+      spriteID: 77bd3edad70eb1db0800000000000000
+      internalID: -4820012145777058953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_5
+      name: tile-map_5
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 20
-        height: 24
+        x: 315
+        y: 290
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: db0f022af6a2c854a893931c23847eda
-      internalID: 923814870
+      spriteID: ecbbf06a706eda990800000000000000
+      internalID: -7372984094410425394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_6
+      name: tile-map_6
       rect:
         serializedVersion: 2
-        x: 120
-        y: 0
-        width: 20
-        height: 24
+        x: 620
+        y: 290
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4ef3f35f7a5bde242a1642fe1b36aff4
-      internalID: -2019888640
+      spriteID: 2abffa97947011ea0800000000000000
+      internalID: -5903929624350426206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_7
+      name: tile-map_7
       rect:
         serializedVersion: 2
-        x: 140
-        y: 0
-        width: 20
-        height: 24
+        x: 925
+        y: 290
+        width: 305
+        height: 305
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 04e23e6aff23b174e82ec1b4260a1b5c
-      internalID: -427534725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_8
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93967300f97f6fc42b4b24afbf643b26
-      internalID: -161780741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_9
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 20
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a168748c243b5a4db5daf2ead761ffc
-      internalID: 888920866
+      spriteID: 0164f0dcf0956ee60800000000000000
+      internalID: 7991172513215235600
       vertices: []
       indices: 
       edges: []
@@ -373,7 +362,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c3cf4b074106dfb47b33617eff75b4c6
+    spriteID: 427541d543b13a44c87428a3e5a77c29
     internalID: 0
     vertices: []
     indices: 
@@ -383,18 +372,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":1.0},"gridSpriteSize":{"x":20.0,"y":24.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":305.0,"y":305.0},"gridSpriteOffset":{"x":10.0,"y":5.0},"gridSpritePadding":{"x":0.0,"y":7.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Player_0: -1638628487
-      Player_1: -99494149
-      Player_2: 172614417
-      Player_3: -137638304
-      Player_4: -540604337
-      Player_5: 923814870
-      Player_6: -2019888640
-      Player_7: -427534725
-      Player_8: -161780741
-      Player_9: 888920866
+      tile-map_0: -5808159861266587446
+      tile-map_1: -7814612430403319112
+      tile-map_2: 6829542376464487224
+      tile-map_3: 6381185412597049613
+      tile-map_4: -4820012145777058953
+      tile-map_5: -7372984094410425394
+      tile-map_6: -5903929624350426206
+      tile-map_7: 7991172513215235600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
