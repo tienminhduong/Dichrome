@@ -2670,7 +2670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927071085}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: -12.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2678,7 +2678,7 @@ Transform:
   - {fileID: 972904699}
   - {fileID: 1310389883}
   - {fileID: 947854347}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1952149751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943542484
 GameObject:
@@ -2718,7 +2718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943542484}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2726,7 +2726,7 @@ Transform:
   - {fileID: 1208768632}
   - {fileID: 1651291272}
   - {fileID: 765953212}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1952149751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1943542487
 MonoBehaviour:
@@ -2776,6 +2776,7 @@ MonoBehaviour:
   gameGrids:
   - {fileID: 1943542487}
   - {fileID: 1927071086}
+  rotationDuration: 0.2
 --- !u!4 &1952149751
 Transform:
   m_ObjectHideFlags: 0
@@ -2788,7 +2789,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1943542486}
+  - {fileID: 1927071088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6162906085948827062
@@ -2844,8 +2847,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2398289437446684830, guid: f66eec77207fae347902231fac197a97, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66eec77207fae347902231fac197a97, type: 3}
@@ -2854,8 +2856,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 743059415}
-  - {fileID: 1943542486}
-  - {fileID: 1927071088}
   - {fileID: 6162906085948827062}
   - {fileID: 204497673}
   - {fileID: 1952149751}

@@ -8,6 +8,13 @@ public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
     public static event Action<Vector2> Move;
     public static event Action Swap;
 
+    private static bool isInputLocked = false;
+    public static void SetLockInput(bool isLocked)
+    {
+        isInputLocked = isLocked;
+    }
+    public static bool IsInputLocked => isInputLocked;
+
 
     InputSystem_Actions inputActions;
 

@@ -45,10 +45,8 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement(Vector2 input)
     {
-        if (isLockMovement)
-        {
+        if (isLockMovement || InputHandler.IsInputLocked)
             return;
-        }
 
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {

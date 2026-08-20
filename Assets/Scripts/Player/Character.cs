@@ -38,8 +38,6 @@ public class Character : MonoBehaviour
     {
         movementQueue.Enqueue(input);
         movementTimer.DecrementTurn();
-
-        LogService.Log($"Movement queued for {gameObject.name}. Queue size: {movementQueue.Count}. Remaining turns: {movementTimer.RemainingTurns}");
     }
 
     private void ProcessMovement()
