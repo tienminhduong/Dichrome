@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     private CharacterController controller;
 
     private GameGrid gameGrid;
+    private Vector3 normalScale;
 
     void Awake()
     {
@@ -76,6 +77,30 @@ public class Character : MonoBehaviour
             {
                 transform.position = targetPosition;
                 onComplete?.Invoke();
+            });
+    }
+
+    public Tween PlayScaleDownTween()
+    {
+        moveTween?.Kill(true);
+        normalScale = transform.localScale;
+        return transform.DOScale(Vector3.zero, CommonSetting.Instance.MoveAnimTime)
+            .SetEase(Ease.InBack)
+            .OnComplete(() =>
+            {
+                transform.localScale = Vector3.zero;
+            });
+    }
+
+    public Tween PlayScaleUpTween()
+    {
+        moveTween?.Kill(true);
+        transform.localScale = Vector3.zero;
+        return transform.DOScale(normalScale, CommonSetting.Instance.MoveAnimTime)
+            .SetEase(Ease.OutBack)
+            .OnComplete(() =>
+            {
+                transform.localScale = normalScale;
             });
     }
 }
