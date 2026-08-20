@@ -6,7 +6,8 @@ using static InputSystem_Actions;
 public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
 {
     public static event Action<Vector2> Move;
-    public static event Action Interact;
+    public static event Action Swap;
+
 
     InputSystem_Actions inputActions;
 
@@ -77,4 +78,12 @@ public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
     public void OnTrackedDeviceOrientation(InputAction.CallbackContext context) { }
 
     public void OnTrackedDevicePosition(InputAction.CallbackContext context) { }
+
+    public void OnSwap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Swap?.Invoke();
+        }
+    }
 }
