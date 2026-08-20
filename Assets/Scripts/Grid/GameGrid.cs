@@ -27,10 +27,6 @@ public class GameGrid : MonoBehaviour
                 continue;
             if (!gridNodes.ContainsKey(pos))
                 gridNodes[pos] = new GridNode(pos, wallTilemap.HasTile(pos) ? NodeType.Unwalkable : NodeType.Walkable);
-            else if (wallTilemap.HasTile(pos))
-                gridNodes[pos].nodeType |= NodeType.Unwalkable;
-            else
-                gridNodes[pos].nodeType |= NodeType.Walkable;
         }
     }
 
