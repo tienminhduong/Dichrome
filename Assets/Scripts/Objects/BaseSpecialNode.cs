@@ -3,7 +3,8 @@ using UnityEngine;
 public abstract class BaseSpecialNode : MonoBehaviour
 {
     protected GameGrid gameGrid;
-    void Awake()
+    public virtual bool IsWalkable => true;
+    protected virtual void Awake()
     {
         gameGrid = transform.parent.GetComponent<GameGrid>();
         if (gameGrid == null)
@@ -22,5 +23,6 @@ public abstract class BaseSpecialNode : MonoBehaviour
         gameGrid.RemoveSpecialGridNode(this);
     }
 
-    public abstract void OnCharacterEnter(Character character);
+    public virtual void OnCharacterEnter(Character character) { }
+    public virtual void OnCharacterExit(Character character) { }
 }

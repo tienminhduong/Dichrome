@@ -49,13 +49,22 @@ public class GameGrid : MonoBehaviour
         if (!gridNodes.ContainsKey(gridPosition))
         {
             var gridNode = new GridNode(gridPosition, NodeType.Effect);
+            if (node.IsWalkable)
+                gridNode.nodeType |= NodeType.Walkable;
+            else
+                gridNode.nodeType &= ~NodeType.Walkable;
             gridNodes[gridPosition] = gridNode;
         }
         else
         {
             gridNodes[gridPosition].nodeType |= NodeType.Effect;
+            if (node.IsWalkable)
+                gridNodes[gridPosition].nodeType |= NodeType.Walkable;
+            else
+                gridNodes[gridPosition].nodeType &= ~NodeType.Walkable;
         }
         specialInitNodes[gridPosition] = node;
+        LogService.Log($"Added special grid node at {gridPosition} for {node.gameObject.name}. Current size of specialInitNodes: {specialInitNodes.Count}");
     }
 
     public void RemoveSpecialGridNode(BaseSpecialNode node)
@@ -93,7 +102,18 @@ public class GameGrid : MonoBehaviour
         return grid.GetCellCenterWorld(gridPosition);
     }
 
-    public void HandleSpecialEffectAtPosition(Vector3Int position, Character character)
+    public void SwitchNodeWalkableState(Vector3Int position, bool isWalkable)
+    {
+        if (gridNodes.TryGetValue(position, out var node))
+        {
+            if (isWalkable)
+                node.nodeType |= NodeType.Walkable;
+            else
+                node.nodeType &= ~NodeType.Walkable;
+        }
+    }
+
+    public void HandleMoveToPos(Vector3Int position, Character character)
     {
         var node = GetGridNode(position);
         if (node != null && (node.nodeType & NodeType.Effect) != 0)
@@ -101,6 +121,19 @@ public class GameGrid : MonoBehaviour
             if (specialInitNodes.TryGetValue(position, out var specialNode))
             {
                 specialNode.OnCharacterEnter(character);
+            }
+        }
+    }
+
+    public void HandleMoveOutPos(Vector3Int position, Character character)
+    {
+        var node = GetGridNode(position);
+        if (node != null && (node.nodeType & NodeType.Effect) != 0)
+        {
+            if (specialInitNodes.TryGetValue(position, out var specialNode))
+            {
+                LogService.Log($"Character {character.gameObject.name} is exiting special node {specialNode.gameObject.name} at position {position}");
+                specialNode.OnCharacterExit(character);
             }
         }
     }

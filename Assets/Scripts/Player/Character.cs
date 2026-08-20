@@ -52,17 +52,19 @@ public class Character : MonoBehaviour
         if (movementQueue.Count > 0)
         {
             Vector2 input = movementQueue.Dequeue();
-            Vector3Int nextGridPosition = gameGrid.WorldToGridPosition(transform.position + (Vector3)input);
+            Vector3Int currentGridPosition = gameGrid.WorldToGridPosition(transform.position);
+            Vector3Int nextGridPosition = currentGridPosition + new Vector3Int((int)input.x, (int)input.y, 0);
             Vector3 targetWorldPosition = gameGrid.GridToWorldPosition(nextGridPosition);
 
             bool isWalkable = gameGrid.IsWalkable(nextGridPosition);
             if (isWalkable)
             {
                 controller.RaiseLockMovement(this);
+                gameGrid.HandleMoveOutPos(currentGridPosition, this);
                 SmoothMove(targetWorldPosition, onComplete: () =>
                 {
                     controller.ReleaseLockMovement(this);
-                    gameGrid.HandleSpecialEffectAtPosition(nextGridPosition, this);
+                    gameGrid.HandleMoveToPos(nextGridPosition, this);
                 });
             }
         }
