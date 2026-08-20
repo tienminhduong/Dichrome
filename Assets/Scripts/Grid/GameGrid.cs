@@ -8,7 +8,8 @@ public class GameGrid : MonoBehaviour
     [SerializeField] private Tilemap walkableTilemap;
     [SerializeField] private Tilemap wallTilemap;
 
-    private Dictionary<Vector3Int, GridNode> gridNodes = new();
+    private readonly Dictionary<Vector3Int, GridNode> gridNodes = new();
+    private readonly Dictionary<Vector3Int, BaseSpecialNode> specialInitNodes = new();
     [SerializeField] private List<GridNode> serializedNodes = new();
 
     void Awake()
@@ -19,17 +20,17 @@ public class GameGrid : MonoBehaviour
 
     private void LoadGridNodes()
     {
-        gridNodes.Clear();
-
+        LogService.Log($"Loading grid nodes for {gameObject.name}..., current size of gridNodes: {gridNodes.Count}");
         foreach (var pos in walkableTilemap.cellBounds.allPositionsWithin)
         {
             if (!walkableTilemap.HasTile(pos))
                 continue;
-            gridNodes[pos] = new GridNode(pos, NodeType.Walkable);
-            if (wallTilemap.HasTile(pos))
-            {
-                gridNodes[pos].nodeType = NodeType.Unwalkable;
-            }
+            if (!gridNodes.ContainsKey(pos))
+                gridNodes[pos] = new GridNode(pos, wallTilemap.HasTile(pos) ? NodeType.Unwalkable : NodeType.Walkable);
+            else if (wallTilemap.HasTile(pos))
+                gridNodes[pos].nodeType |= NodeType.Unwalkable;
+            else
+                gridNodes[pos].nodeType |= NodeType.Walkable;
         }
     }
 
@@ -39,6 +40,31 @@ public class GameGrid : MonoBehaviour
         foreach (var node in gridNodes.Values)
         {
             serializedNodes.Add(node);
+        }
+    }
+
+    public void AddSpecialGridNode(BaseSpecialNode node)
+    {
+        var gridPosition = WorldToGridPosition(node.transform.position);
+        if (!gridNodes.ContainsKey(gridPosition))
+        {
+            var gridNode = new GridNode(gridPosition, NodeType.Effect);
+            gridNodes[gridPosition] = gridNode;
+        }
+        else
+        {
+            gridNodes[gridPosition].nodeType |= NodeType.Effect;
+        }
+        specialInitNodes[gridPosition] = node;
+    }
+
+    public void RemoveSpecialGridNode(BaseSpecialNode node)
+    {
+        var gridPosition = WorldToGridPosition(node.transform.position);
+        if (gridNodes.ContainsKey(gridPosition))
+        {
+            gridNodes[gridPosition].nodeType &= ~NodeType.Effect;
+            specialInitNodes.Remove(gridPosition);
         }
     }
 
@@ -65,5 +91,17 @@ public class GameGrid : MonoBehaviour
     public Vector3 GridToWorldPosition(Vector3Int gridPosition)
     {
         return grid.GetCellCenterWorld(gridPosition);
+    }
+
+    public void HandleSpecialEffectAtPosition(Vector3Int position, Character character)
+    {
+        var node = GetGridNode(position);
+        if (node != null && (node.nodeType & NodeType.Effect) != 0)
+        {
+            if (specialInitNodes.TryGetValue(position, out var specialNode))
+            {
+                specialNode.OnCharacterEnter(character);
+            }
+        }
     }
 }

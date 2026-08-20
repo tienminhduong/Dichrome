@@ -14,6 +14,7 @@ public class GridNode
     }
 }
 
+[Flags]
 public enum NodeType
 {
     Walkable = 1 << 1,

@@ -34,6 +34,12 @@ public class Character : MonoBehaviour
         controller = characterController;
     }
 
+    public void ChangeGrid(GameGrid newGrid)
+    {
+        gameGrid = newGrid;
+        transform.SetParent(newGrid.transform);
+    }
+
     public void QueueMovement(Vector2 input)
     {
         movementQueue.Enqueue(input);
@@ -52,9 +58,10 @@ public class Character : MonoBehaviour
             if (isWalkable)
             {
                 controller.RaiseLockMovement(this);
-                SmoothMove(targetWorldPosition, () =>
+                SmoothMove(targetWorldPosition, onComplete: () =>
                 {
                     controller.ReleaseLockMovement(this);
+                    gameGrid.HandleSpecialEffectAtPosition(nextGridPosition, this);
                 });
             }
         }
@@ -62,15 +69,10 @@ public class Character : MonoBehaviour
 
     private void SmoothMove(Vector3 targetPosition, TweenCallback onComplete = null)
     {
-        moveTween?.Kill();
+        moveTween?.Kill(true);
         moveTween = transform.DOMove(targetPosition, CommonSetting.Instance.MoveAnimTime)
             .SetEase(Ease.Linear)
             .OnComplete(() =>
-            {
-                transform.position = targetPosition;
-                onComplete?.Invoke();
-            })
-            .OnKill(() =>
             {
                 transform.position = targetPosition;
                 onComplete?.Invoke();
