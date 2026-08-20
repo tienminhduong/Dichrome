@@ -55,7 +55,14 @@ public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
 
     public void OnMiddleClick(InputAction.CallbackContext context) { }
 
-    public void OnMove(InputAction.CallbackContext context) { }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Vector2 input = context.ReadValue<Vector2>();
+            Move?.Invoke(input);
+        }
+    }
 
     public void OnNavigate(InputAction.CallbackContext context) { }
 
