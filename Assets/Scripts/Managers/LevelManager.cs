@@ -61,6 +61,7 @@ public class LevelManager : Singleton<LevelManager>
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             currentLevelInstance = Instantiate(handle.Result);
+            PublicEvents.RaiseLevelLoaded(currentLevelIndex);
             LogService.Log($"Successfully loaded level {currentLevelIndex}.");
         }
         else

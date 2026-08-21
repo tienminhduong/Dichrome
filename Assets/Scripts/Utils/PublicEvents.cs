@@ -20,4 +20,10 @@ public static class PublicEvents
     {
         OnLevelEnded?.Invoke(isWin);
     }
+
+    public static event Action<int> OnLevelLoaded;
+    public static void RaiseLevelLoaded(int levelIndex)
+    {
+        OnLevelLoaded?.Invoke(levelIndex);
+    }
 }
