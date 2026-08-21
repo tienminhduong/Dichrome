@@ -14,4 +14,10 @@ public static class PublicEvents
     {
         OnUIClosed?.Invoke();
     }
+
+    public static event Action<bool> OnLevelEnded; // true for win, false for lose
+    public static void RaiseLevelEnded(bool isWin)
+    {
+        OnLevelEnded?.Invoke(isWin);
+    }
 }

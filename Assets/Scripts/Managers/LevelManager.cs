@@ -7,6 +7,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private List<AssetReference> levelReferences;
     private int currentLevelIndex = -1;
+    private GameObject currentLevelInstance;
 
     void Start()
     {
@@ -46,6 +47,10 @@ public class LevelManager : Singleton<LevelManager>
         }
 
         var currentLevelReference = levelReferences[currentLevelIndex];
+
+        Destroy(currentLevelInstance);
+        currentLevelInstance = null;
+
         currentLevelReference.ReleaseAsset();
         LogService.Log($"Unloaded level {currentLevelIndex}.");
         currentLevelIndex = -1;
@@ -55,12 +60,36 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            Instantiate(handle.Result);
+            currentLevelInstance = Instantiate(handle.Result);
             LogService.Log($"Successfully loaded level {currentLevelIndex}.");
         }
         else
         {
             LogService.LogError($"Failed to load level {currentLevelIndex}. Status: {handle.Status}");
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        int nextLevelIndex = currentLevelIndex + 1;
+        if (nextLevelIndex >= levelReferences.Count)
+        {
+            LogService.Log("No more levels to load. You have completed all available levels!");
+            return;
+        }
+
+        LoadLevelWithIndex(nextLevelIndex);
+    }
+
+    public void ReloadCurrentLevel()
+    {
+        if (currentLevelIndex == -1)
+        {
+            LogService.LogWarning("No level is currently loaded. Cannot reload.");
+            return;
+        }
+
+        UnloadCurrentLevel();
+        LoadLevelWithIndex(currentLevelIndex);
     }
 }

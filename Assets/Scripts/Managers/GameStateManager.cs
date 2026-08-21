@@ -23,7 +23,7 @@ public class GameStateManager : Singleton<GameStateManager>
         currentWinGatesActivated++;
         if (currentWinGatesActivated >= requireWinGatesToWin)
         {
-            SetGameState(GameState.LevelCompleted);
+            SetGameState(GameState.LevelWin);
         }
     }
 
@@ -36,10 +36,10 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         currentState = newState;
 
-        if (currentState == GameState.LevelCompleted)
+        if (currentState == GameState.LevelWin)
         {
             LogService.Log("Level Completed!");
-            // Handle level completion logic here
+            PublicEvents.RaiseLevelEnded(true);
         }
     }
 }
@@ -49,5 +49,5 @@ public enum GameState
     Playing,
     Paused,
     GameOver,
-    LevelCompleted
+    LevelWin
 }
