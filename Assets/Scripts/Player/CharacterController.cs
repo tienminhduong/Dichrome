@@ -6,9 +6,11 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] private List<Character> characters = new();
+    [SerializeField] private int turnLimit = 10;
 
     private bool isLockMovement = false;
     private Character lockCalledCharacter = null;
+    private int currentTurn = 0;
 
     public void RaiseLockMovement(Character character)
     {
@@ -66,6 +68,17 @@ public class CharacterController : MonoBehaviour
         foreach (var character in characters)
         {
             character.QueueMovement(input);
+        }
+
+        CheckEndTurn();
+    }
+
+    private void CheckEndTurn()
+    {
+        currentTurn++;
+        if (currentTurn >= turnLimit)
+        {
+            PublicEvents.RaiseLevelEnded(false);
         }
     }
 }
