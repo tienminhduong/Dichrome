@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[DefaultExecutionOrder(0)]
 public class DimensionBrick : BaseSpecialNode
 {
     private SpriteRenderer spriteRenderer;

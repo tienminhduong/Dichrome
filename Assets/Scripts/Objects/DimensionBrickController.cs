@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-1)]
 public class DimensionBrickController : Singleton<DimensionBrickController>
 {
     [SerializeField] private List<Sprite> stateSprites = new();

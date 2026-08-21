@@ -6,6 +6,8 @@ public class Character : MonoBehaviour
 {
     private readonly Queue<Vector2> movementQueue = new();
     [SerializeField] private TurnCountdownTimer movementTimer = new(1, true);
+    [SerializeField] private CharacterColor characterColor = CharacterColor.Black;
+    public CharacterColor CharacterColor => characterColor;
 
     private Tween moveTween;
     private CharacterController controller;
@@ -105,4 +107,10 @@ public class Character : MonoBehaviour
                 transform.localScale = normalScale;
             });
     }
+}
+
+public enum CharacterColor
+{
+    Black,
+    White
 }
