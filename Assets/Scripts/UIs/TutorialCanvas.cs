@@ -65,9 +65,10 @@ public class TutorialCanvas : MonoBehaviour
 
     private void PlayDialogue(string dialogueLine)
     {
-        // typingCancellationTokenSource = new CancellationTokenSource();
-        // PlayDialogueAsync(dialogueLine, typingCancellationTokenSource.Token).Forget();
-        dialogueText.text = dialogueLine;
+        typingCancellationTokenSource = new CancellationTokenSource();
+        PlayDialogueAsync(dialogueLine, typingCancellationTokenSource.Token).Forget();
+
+        // dialogueText.text = dialogueLine;
     }
 
     private void EndCurrentDialogueEarly()
@@ -92,6 +93,12 @@ public class TutorialCanvas : MonoBehaviour
             try
             {
                 cancellationToken.ThrowIfCancellationRequested();
+
+                alphaIndex++;
+                string displayText = originalText.Insert(alphaIndex, HTML_TRANSPARENT_TAG) + HTML_END_TAG;
+                dialogueText.text = displayText;
+
+                await UniTask.Delay(TimeSpan.FromSeconds(secondsPerCharacter), cancellationToken: cancellationToken);
             }
             catch (OperationCanceledException)
             {
@@ -99,12 +106,6 @@ public class TutorialCanvas : MonoBehaviour
                 dialogueText.text = originalText;
                 return;
             }
-
-            alphaIndex++;
-            string displayText = originalText.Insert(alphaIndex, HTML_TRANSPARENT_TAG) + HTML_END_TAG;
-            dialogueText.text = displayText;
-
-            await UniTask.Delay(System.TimeSpan.FromSeconds(secondsPerCharacter), cancellationToken: cancellationToken);
         }
 
         isTyping = false;
