@@ -59,6 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5813849055421526661}
+  - component: {fileID: 3656825586326165831}
   m_Layer: 0
   m_Name: BaseLevel
   m_TagString: Untagged
@@ -83,6 +84,23 @@ Transform:
   - {fileID: 9099960772002266815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3656825586326165831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348135729400028808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22309d12aa7e8e419dc8e33f1157b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level
+  levelConfigData:
+    turnLimit: 0
+    blackPlayerDelay: 0
+    whitePlayerDelay: 0
+  characterController: {fileID: 2714762044349540350}
 --- !u!1 &1759030428610654258
 GameObject:
   m_ObjectHideFlags: 0

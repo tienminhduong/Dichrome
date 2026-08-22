@@ -7,10 +7,15 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private List<Character> characters = new();
     [SerializeField] private int turnLimit = 10;
+    private Level level;
 
     private bool isLockMovement = false;
     private Character lockCalledCharacter = null;
     private int currentTurn = 0;
+
+    public static event Action<int> OnTurnLimitChanged;
+    public static event Action<int> OnRemainingTurnChanged;
+    public static event Action<Vector2> OnInputReceived;
 
     public void RaiseLockMovement(Character character)
     {
@@ -27,11 +32,24 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void SetTurnLimit(int limit)
     {
+        turnLimit = limit;
+        OnTurnLimitChanged?.Invoke(turnLimit);
+        OnRemainingTurnChanged?.Invoke(turnLimit - currentTurn);
+    }
+
+    public void Initialize(Level level)
+    {
+        this.level = level;
+        SetTurnLimit(level.LevelConfigData.turnLimit);
         foreach (var character in characters)
         {
             character.Initialize(this);
+            if (character.CharacterColor == CharacterColor.Black)
+                character.SetMovementTimer(level.LevelConfigData.blackPlayerDelay);
+            else if (character.CharacterColor == CharacterColor.White)
+                character.SetMovementTimer(level.LevelConfigData.whitePlayerDelay);
         }
     }
 
@@ -69,6 +87,7 @@ public class CharacterController : MonoBehaviour
         {
             character.QueueMovement(input);
         }
+        OnInputReceived?.Invoke(input);
 
         CheckEndTurn();
     }
@@ -76,6 +95,7 @@ public class CharacterController : MonoBehaviour
     private void CheckEndTurn()
     {
         currentTurn++;
+        OnRemainingTurnChanged?.Invoke(turnLimit - currentTurn);
         if (currentTurn >= turnLimit)
         {
             PublicEvents.RaiseLevelEnded(false);

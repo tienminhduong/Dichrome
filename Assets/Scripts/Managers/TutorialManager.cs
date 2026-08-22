@@ -7,6 +7,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private List<TutorialLine> tutorialLines = new();
     [SerializeField] private TutorialCanvas tutorialCanvas;
     private readonly Dictionary<int, List<string>> tutorialLinesDictionary = new();
+    private readonly HashSet<int> levelsShown = new();
 
     void Awake()
     {
@@ -38,9 +39,10 @@ public class TutorialManager : MonoBehaviour
 
     private void HandleLevelLoaded(int levelIndex)
     {
-        if (tutorialLinesDictionary.TryGetValue(levelIndex, out var lines))
+        if (tutorialLinesDictionary.TryGetValue(levelIndex, out var lines) && !levelsShown.Contains(levelIndex))
         {
             tutorialCanvas.LoadAndShowDialogue(lines);
+            levelsShown.Add(levelIndex);
         }
     }
 }

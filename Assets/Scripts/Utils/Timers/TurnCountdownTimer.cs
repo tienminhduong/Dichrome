@@ -40,10 +40,11 @@ public class TurnCountdownTimer
         remainingTurns = totalTurns;
     }
 
-    public void SetTotalTurns(int newTotalTurns)
+    public void SetTotalTurns(int newTotalTurns, bool resetRemainingTurns = true)
     {
         totalTurns = newTotalTurns;
-        ResetTimer();
+        if (resetRemainingTurns)
+            ResetTimer();
     }
 
     public void SetResetOnFinish(bool shouldReset)

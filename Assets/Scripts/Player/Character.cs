@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Character : MonoBehaviour
     [SerializeField] private TurnCountdownTimer movementTimer = new(1, true);
     [SerializeField] private CharacterColor characterColor = CharacterColor.Black;
     public CharacterColor CharacterColor => characterColor;
+    public static event Action<CharacterColor> OnCharacterMoved;
 
     private Tween moveTween;
     private CharacterController controller;
@@ -54,6 +56,7 @@ public class Character : MonoBehaviour
         if (movementQueue.Count > 0)
         {
             Vector2 input = movementQueue.Dequeue();
+            OnCharacterMoved?.Invoke(characterColor);
             Vector3Int currentGridPosition = gameGrid.WorldToGridPosition(transform.position);
             Vector3Int nextGridPosition = currentGridPosition + new Vector3Int((int)input.x, (int)input.y, 0);
             Vector3 targetWorldPosition = gameGrid.GridToWorldPosition(nextGridPosition);
@@ -106,6 +109,11 @@ public class Character : MonoBehaviour
             {
                 transform.localScale = normalScale;
             });
+    }
+
+    public void SetMovementTimer(int totalTurns)
+    {
+        movementTimer.SetTotalTurns(totalTurns);
     }
 }
 
