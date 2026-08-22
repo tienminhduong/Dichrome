@@ -90,7 +90,8 @@ public class LevelManager : Singleton<LevelManager>
             return;
         }
 
+        var currentLevel = currentLevelIndex;
         UnloadCurrentLevel();
-        LoadLevelWithIndex(currentLevelIndex);
+        LoadLevelWithIndex(currentLevel);
     }
 }

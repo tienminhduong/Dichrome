@@ -4,9 +4,18 @@ using UnityEngine;
 public class GameStateManager : Singleton<GameStateManager>
 {
     private GameState currentState = GameState.Playing;
-    private int requireWinGatesToWin = 0;
+    [SerializeField] private int requireWinGatesToWin = 0;
     private int currentWinGatesActivated = 0;
 
+    void OnEnable()
+    {
+        PublicEvents.OnLevelLoaded += HandleLevelLoaded;
+    }
+
+    void OnDisable()
+    {
+        PublicEvents.OnLevelLoaded -= HandleLevelLoaded;
+    }
 
     public void RegisterWinGate()
     {
@@ -41,6 +50,12 @@ public class GameStateManager : Singleton<GameStateManager>
             LogService.Log("Level Completed!");
             PublicEvents.RaiseLevelEnded(true);
         }
+    }
+
+    private void HandleLevelLoaded(int levelIndex)
+    {
+        currentState = GameState.Playing;
+        currentWinGatesActivated = 0;
     }
 }
 

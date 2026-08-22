@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Levels
   m_GUID: fe213c8b3c478f247bd902dd503a7918
   m_SerializeEntries:
+  - m_GUID: 49782c3b94922c6428b0107e61978e84
+    m_Address: Assets/GameAssets/Prefabs/Levels/Level2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71f29664b950e124dadfb11c8fe0b057
     m_Address: Assets/GameAssets/Prefabs/Levels/Level1.prefab
     m_ReadOnly: 0
