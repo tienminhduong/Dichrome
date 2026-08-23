@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -67,6 +68,8 @@ public class CharacterController : MonoBehaviour
     {
         if (isLockMovement || InputHandler.IsInputLocked)
             return;
+        if (currentTurn >= turnLimit)
+            return;
 
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
@@ -91,6 +94,7 @@ public class CharacterController : MonoBehaviour
             character.QueueMovement(input);
         }
         OnInputReceived?.Invoke(input);
+        AudioManager.Instance.PlaySFX(SoundDatabase.MOVE);
 
         CheckEndTurn();
     }
@@ -101,7 +105,11 @@ public class CharacterController : MonoBehaviour
         OnRemainingTurnChanged?.Invoke(turnLimit - currentTurn);
         if (currentTurn >= turnLimit)
         {
-            PublicEvents.RaiseLevelEnded(false);
+            UniTask.WaitForSeconds(1).ContinueWith(() =>
+            {
+                if (GameStateManager.Instance.CurrentState != GameState.LevelWin)
+                    PublicEvents.RaiseLevelEnded(false);
+            });
         }
     }
 }

@@ -34,6 +34,7 @@ public class GridController : MonoBehaviour
         int nextGridIndex = GetNextGridIndex();
         var activeGrid = gameGrids[activeGridIndex];
         var nextGrid = gameGrids[nextGridIndex];
+        AudioManager.Instance.PlaySFX(SoundDatabase.FLIP);
 
         // tween rotate half of the grid to 90 degrees, then swap positions, then tween rotate back to 0 degrees
         nextGrid.transform.localRotation = Quaternion.Euler(0, -90, 0);

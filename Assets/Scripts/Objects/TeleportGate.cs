@@ -21,6 +21,7 @@ public class TeleportGate : BaseSpecialNode
             LogService.Log($"TeleportGate {gameObject.name} is disabled. No teleportation will occur.");
             return;
         }
+        AudioManager.Instance.PlaySFX(SoundDatabase.TELEPORT);
 
         character.PlayScaleDownTween().OnComplete(() =>
         {

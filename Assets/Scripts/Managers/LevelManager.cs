@@ -11,6 +11,8 @@ public class LevelManager : Singleton<LevelManager>
     private GameObject currentLevelInstance;
     private int nextLevelToLoad = 0;
 
+    private readonly string LEVEL_INDEX_KEY = "CurrentLevelIndex";
+
     void OnEnable()
     {
         SceneController.OnSceneLoadEnded += HandleSceneLoadEnded;
@@ -60,6 +62,7 @@ public class LevelManager : Singleton<LevelManager>
         var levelReference = levelReferences[index];
         levelReference.LoadAssetAsync<GameObject>().Completed += OnLevelLoaded;
         currentLevelIndex = index;
+        PlayerPrefs.SetInt(LEVEL_INDEX_KEY, currentLevelIndex);
     }
 
     private void UnloadCurrentLevel()
@@ -99,6 +102,7 @@ public class LevelManager : Singleton<LevelManager>
         int nextLevelIndex = currentLevelIndex + 1;
         if (nextLevelIndex >= levelReferences.Count)
         {
+            SceneController.Instance.LoadAddessableScene(SceneDatabase.WIN);
             LogService.Log("No more levels to load. You have completed all available levels!");
             return;
         }
@@ -129,5 +133,10 @@ public class LevelManager : Singleton<LevelManager>
 
         nextLevelToLoad = index;
         LogService.Log($"Next level to load set to {nextLevelToLoad}.");
+    }
+
+    public int GetSavedLevelIndex()
+    {
+        return PlayerPrefs.GetInt(LEVEL_INDEX_KEY, 0);
     }
 }

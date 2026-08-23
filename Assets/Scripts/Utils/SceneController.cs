@@ -31,11 +31,11 @@ public class SceneController : Singleton<SceneController>
 
         var loadOperation = Addressables.LoadSceneAsync(sceneAddress);
         activeSceneInstance = await loadOperation.Task;
+        OnSceneLoadEnded?.Invoke(sceneAddress);
 
         await loadingCover.DOFade(0, fadeDuration).AsyncWaitForCompletion();
         loadingCover.raycastTarget = false;
 
-        OnSceneLoadEnded?.Invoke(sceneAddress);
     }
 }
 
@@ -43,4 +43,5 @@ public static class SceneDatabase
 {
     public const string MAIN_MENU = "Assets/Scenes/MainMenu.unity";
     public const string GAMEPLAY = "Assets/Scenes/Gameplay.unity";
+    public const string WIN = "Assets/Scenes/Win.unity";
 }

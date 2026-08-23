@@ -79,6 +79,7 @@ Transform:
   - {fileID: 9078952974353524025}
   - {fileID: 225814818793376486}
   - {fileID: 7722772024338706032}
+  - {fileID: 1544086320761733187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-1684028992524647631
@@ -93,6 +94,135 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d359ca1acc8d0469d085d8e1f56650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentObject
+--- !u!1 &1819741946407262171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3862635795155019012}
+  - component: {fileID: 8327508327909213266}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3862635795155019012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819741946407262171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1544086320761733187}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &8327508327909213266
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819741946407262171}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5622996427752539957, guid: 7bafe8dc9dba62043b4f3062c7eef686, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2855377070547745599
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +345,71 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3617887413545171401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544086320761733187}
+  - component: {fileID: 8299441920774954217}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544086320761733187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617887413545171401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3862635795155019012}
+  m_Father: {fileID: 8712994468091257840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8299441920774954217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617887413545171401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94510a641ce7d9c44820f36b1ec35687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 8327508327909213266}
+  mainMenuMusic: {fileID: 8300000, guid: e3436492c65afc74e8cbb5a146f14be0, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 9a045b081c40b5c4a959f188f3a6a86d, type: 3}
+  soundDataArray:
+  - key: move
+    clip: {fileID: 8300000, guid: ca38fce0ea3038a499d9d095b5f68f8d, type: 3}
+  - key: lock
+    clip: {fileID: 8300000, guid: d720edbcf51cea147a81f95020bbd367, type: 3}
+  - key: win
+    clip: {fileID: 8300000, guid: 93c4b4f5fa2a1784ab220ae40600a61b, type: 3}
+  - key: lose
+    clip: {fileID: 8300000, guid: 87225d75453b3ae4e859ce00394f8d0c, type: 3}
+  - key: button_click
+    clip: {fileID: 8300000, guid: acb65daa8cb7d96408ff4fbb676cc514, type: 3}
+  - key: teleport
+    clip: {fileID: 8300000, guid: 4b00e72a6d99c9e49a615d1f7915682e, type: 3}
+  - key: flip
+    clip: {fileID: 8300000, guid: b129451ad1c6a4f419e5b312de61367f, type: 3}
+  maxConcurrentSFX: 10
+  soundEmitterPrefab: {fileID: 8644110198791677214, guid: cc98a8b9cf2b6e645b6c082a8a90fc14, type: 3}
 --- !u!1 &3740492885485724560
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +871,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &1907227025057911376
 MonoBehaviour:
@@ -859,12 +1054,21 @@ MonoBehaviour:
   tutorialLines:
   - levelIndex: 0
     lines:
-    - '"Why do I have weird feeling that there''s another me"'
+    - This is a game about a weird world with 2 sides
     - Press 'F' to check the other side
   - levelIndex: 1
     lines:
     - '"Can the other world be different from this world?"'
     - '"Do we both have to win at the same time?"'
+  - levelIndex: 4
+    lines:
+    - Teleport gate can make character travel faster
+  - levelIndex: 6
+    lines:
+    - What is this weird block? How can I unblock this block?
+  - levelIndex: 8
+    lines:
+    - The white character will be twice slower now
   tutorialCanvas: {fileID: 2749336303331509451}
 --- !u!1 &8971470162813360794
 GameObject:

@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 public class ResultCanvas : MonoBehaviour
 {
     [SerializeField] private GameObject resultPanel;
+    [SerializeField] private float delayBeforeShowingResult = 0.5f;
 
     [Header("UI Elements")]
     [SerializeField] private TextMeshProUGUI resultText;
@@ -38,6 +40,7 @@ public class ResultCanvas : MonoBehaviour
 
     private void OnHomeButtonClicked()
     {
+        AudioManager.Instance.PlaySFX(SoundDatabase.BUTTON_CLICK);
         SceneController.Instance.LoadAddessableScene(SceneDatabase.MAIN_MENU);
 
         TurnOffPanel();
@@ -45,6 +48,7 @@ public class ResultCanvas : MonoBehaviour
 
     private void OnRestartButtonClicked()
     {
+        AudioManager.Instance.PlaySFX(SoundDatabase.BUTTON_CLICK);
         if (LevelManager.HasInstance)
             LevelManager.Instance.ReloadCurrentLevel();
 
@@ -53,6 +57,7 @@ public class ResultCanvas : MonoBehaviour
 
     private void OnNextLevelButtonClicked()
     {
+        AudioManager.Instance.PlaySFX(SoundDatabase.BUTTON_CLICK);
         if (LevelManager.HasInstance)
             LevelManager.Instance.LoadNextLevel();
 
@@ -61,11 +66,18 @@ public class ResultCanvas : MonoBehaviour
 
     private void ShowResult(bool isWin)
     {
-        resultPanel.SetActive(true);
-        resultText.text = isWin ? winMessage : loseMessage;
-        nextLevelButton.gameObject.SetActive(isWin);
-
         PublicEvents.RaiseUIOpened();
+
+        UniTask.Delay(TimeSpan.FromSeconds(delayBeforeShowingResult)).ContinueWith(() =>
+        {
+            resultPanel.SetActive(true);
+            if (isWin)
+                AudioManager.Instance.PlaySFX(SoundDatabase.WIN);
+            else
+                AudioManager.Instance.PlaySFX(SoundDatabase.LOSE);
+            resultText.text = isWin ? winMessage : loseMessage;
+            nextLevelButton.gameObject.SetActive(isWin);
+        });
     }
 
     private void TurnOffPanel()

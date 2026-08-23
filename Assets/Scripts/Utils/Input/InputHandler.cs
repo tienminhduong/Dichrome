@@ -5,8 +5,8 @@ using static InputSystem_Actions;
 
 public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
 {
-    public static event Action<Vector2> Move;
-    public static event Action Swap;
+    public static Action<Vector2> Move;
+    public static Action Swap;
 
     private static bool isInputLocked = false;
     public static void SetLockInput(bool isLocked)

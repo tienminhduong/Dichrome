@@ -21,12 +21,16 @@ public class MainMenuPanel : MonoBehaviour
 
     private void StartGame()
     {
+        AudioManager.Instance.PlaySFX(SoundDatabase.BUTTON_CLICK);
         LevelManager.Instance.SetNextLevelToLoad(0);
         SceneController.Instance.LoadAddessableScene(SceneDatabase.GAMEPLAY);
     }
 
     private void ContinueGame()
     {
-        LogService.Log("YOU GET AHAED! AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH");
+        AudioManager.Instance.PlaySFX(SoundDatabase.BUTTON_CLICK);
+        int savedLevelIndex = LevelManager.Instance.GetSavedLevelIndex();
+        LevelManager.Instance.SetNextLevelToLoad(savedLevelIndex);
+        SceneController.Instance.LoadAddessableScene(SceneDatabase.GAMEPLAY);
     }
 }

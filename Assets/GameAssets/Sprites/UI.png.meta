@@ -466,7 +466,7 @@ TextureImporter:
         width: 13
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -475,6 +475,72 @@ TextureImporter:
       bones: []
       spriteID: e4cffb1402c6b8a4e9d21879e8b372a5
       internalID: -218369330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_15
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 13
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d848fde76099e4ebdda786ebf0c24f
+      internalID: 1939968225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_16
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 12
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee89270ca3b88b4a86a2477bf4fab55
+      internalID: -432989098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_17
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 156
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e27481462116a458d3c5e600586f00
+      internalID: 1022578891
       vertices: []
       indices: 
       edges: []
@@ -500,6 +566,9 @@ TextureImporter:
       UI_12: -1283096624
       UI_13: -1349024703
       UI_14: -218369330
+      UI_15: 1939968225
+      UI_16: -432989098
+      UI_17: 1022578891
       UI_2: 1080825480604336155
       UI_3: -9136572144232859775
       UI_4: 8586885197115800619

@@ -1,9 +1,11 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
 public class GameStateManager : Singleton<GameStateManager>
 {
     private GameState currentState = GameState.Playing;
+    public GameState CurrentState => currentState;
     [SerializeField] private int requireWinGatesToWin = 0;
     private int currentWinGatesActivated = 0;
 

@@ -47,6 +47,7 @@ public class DimensionBrick : BaseSpecialNode
     {
         base.OnCharacterExit(character);
         OnChangeBrickStateTriggered?.Invoke(gridPosition);
+        AudioManager.Instance.PlaySFX(SoundDatabase.LOCK);
     }
 
     private void HandleChangeBrickState(Vector3Int position)
