@@ -1929,14 +1929,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObject
       objectReference: {fileID: 0}
-    - target: {fileID: 5001922510864967943, guid: f66eec77207fae347902231fac197a97, type: 3}
-      propertyPath: levelReferences.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5001922510864967943, guid: f66eec77207fae347902231fac197a97, type: 3}
-      propertyPath: levelReferences.Array.data[4].m_AssetGUID
-      value: 396a2a3d96ef2a44db20439083ebe1d9
-      objectReference: {fileID: 0}
     - target: {fileID: 8712994468091257840, guid: f66eec77207fae347902231fac197a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
