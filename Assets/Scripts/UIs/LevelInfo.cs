@@ -61,6 +61,12 @@ public class LevelInfo : MonoBehaviour
     {
         levelLabel.text = $"Level {levelIndex + 1}";
         playerMovedDirectionIndexes[0] = playerMovedDirectionIndexes[1] = 0;
+        foreach (var characterIcon in characterTurnIcons)
+        {
+            var pos = characterIcon.anchoredPosition;
+            pos.x = originTurnIconPositionX;
+            characterIcon.anchoredPosition = pos;
+        }
         currentTurnIconIndex = 0;
     }
 

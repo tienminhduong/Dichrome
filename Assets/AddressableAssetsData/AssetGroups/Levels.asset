@@ -15,13 +15,33 @@ MonoBehaviour:
   m_GroupName: Levels
   m_GUID: fe213c8b3c478f247bd902dd503a7918
   m_SerializeEntries:
+  - m_GUID: 34b7e19cf69f2ac448ecc27bc71f4d5e
+    m_Address: Assets/GameAssets/ShaderGraphs/InvertGraph.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49782c3b94922c6428b0107e61978e84
     m_Address: Assets/GameAssets/Prefabs/Levels/Level2.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68e2f3a3370a0624c8e89ace0b258b78
+    m_Address: Assets/GameAssets/ShaderGraphs/NormalGraph.shadergraph
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 71f29664b950e124dadfb11c8fe0b057
     m_Address: Assets/GameAssets/Prefabs/Levels/Level1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6c1406599e9efb408c37c90eb3245d8
+    m_Address: Assets/GameAssets/ShaderGraphs/NormalMat.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f89b93b072b502a4883446c8b6ebe030
+    m_Address: Assets/GameAssets/ShaderGraphs/InvertedMat.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

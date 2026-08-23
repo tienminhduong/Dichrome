@@ -83,6 +83,9 @@ public class CharacterController : MonoBehaviour
             input = Vector2.zero;
         }
 
+        if (input == Vector2.zero)
+            return;
+
         foreach (var character in characters)
         {
             character.QueueMovement(input);
