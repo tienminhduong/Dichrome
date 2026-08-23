@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3663607693583928874}
   - component: {fileID: 688043118395218740}
   - component: {fileID: 1242860223781510874}
+  - component: {fileID: 503384311633427970}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -109,6 +110,28 @@ MonoBehaviour:
     totalTurns: 1
     resetOnFinish: 1
   characterColor: 0
+--- !u!95 &503384311633427970
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025805914849903540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1594a3c1bb48ae1458057b34521949df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1729532542308574716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2053,7 @@ GameObject:
   - component: {fileID: 1093948284898905583}
   - component: {fileID: 4230224833047592927}
   - component: {fileID: 5865236386233880028}
+  - component: {fileID: 6255085912652544237}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2128,6 +2152,28 @@ MonoBehaviour:
     totalTurns: 1
     resetOnFinish: 1
   characterColor: 1
+--- !u!95 &6255085912652544237
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106566454868169281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1594a3c1bb48ae1458057b34521949df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &982389811066911494
 PrefabInstance:
   m_ObjectHideFlags: 0

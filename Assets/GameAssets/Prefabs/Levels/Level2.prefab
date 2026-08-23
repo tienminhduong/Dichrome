@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 5624848576708349423}
   - component: {fileID: 3598458552844208985}
   - component: {fileID: 3480054003707330110}
+  - component: {fileID: 6720457986634700764}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1273,6 +1274,28 @@ MonoBehaviour:
     totalTurns: 1
     resetOnFinish: 1
   characterColor: 0
+--- !u!95 &6720457986634700764
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058267706715620839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1594a3c1bb48ae1458057b34521949df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3258506145030490649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2447,6 +2470,7 @@ GameObject:
   - component: {fileID: 7131106562198176245}
   - component: {fileID: 5713318477644796981}
   - component: {fileID: 6390214068691399455}
+  - component: {fileID: 6315102650323530218}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2545,6 +2569,28 @@ MonoBehaviour:
     totalTurns: 1
     resetOnFinish: 1
   characterColor: 1
+--- !u!95 &6315102650323530218
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935285292379795024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1594a3c1bb48ae1458057b34521949df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9132303039318551958
 GameObject:
   m_ObjectHideFlags: 0

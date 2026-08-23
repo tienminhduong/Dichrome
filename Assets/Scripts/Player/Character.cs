@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
 {
+    private static readonly int IdleHash = Animator.StringToHash("Idle");
+    private static readonly int MoveLeftHash = Animator.StringToHash("MoveLeft");
+    private static readonly int MoveRightHash = Animator.StringToHash("MoveRight");
+    private static readonly int MoveUpDownHash = Animator.StringToHash("MoveUpDown");
     private readonly Queue<Vector2> movementQueue = new();
     [SerializeField] private TurnCountdownTimer movementTimer = new(1, true);
     [SerializeField] private CharacterColor characterColor = CharacterColor.Black;
@@ -15,11 +20,13 @@ public class Character : MonoBehaviour
     private CharacterController controller;
 
     private GameGrid gameGrid;
+    private Animator animator;
     private Vector3 normalScale;
 
     void Awake()
     {
         gameGrid = transform.parent.GetComponent<GameGrid>();
+        animator = GetComponent<Animator>();
         if (gameGrid == null)
             LogService.LogError($"{gameObject.name} is not a child of a GameGrid. Please ensure that the Character is placed under a GameGrid in the hierarchy.");
     }
@@ -78,11 +85,24 @@ public class Character : MonoBehaviour
     private void SmoothMove(Vector3 targetPosition, TweenCallback onComplete = null)
     {
         moveTween?.Kill(true);
+        var direction = targetPosition - transform.position;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+                animator.Play(MoveRightHash);
+            else
+                animator.Play(MoveLeftHash);
+        }
+        else
+        {
+            animator.Play(IdleHash);
+        }
         moveTween = transform.DOMove(targetPosition, CommonSetting.Instance.MoveAnimTime)
             .SetEase(Ease.Linear)
             .OnComplete(() =>
             {
                 transform.position = targetPosition;
+                animator.Play(IdleHash);
                 onComplete?.Invoke();
             });
     }
