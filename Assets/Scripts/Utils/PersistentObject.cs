@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class PersistentObject : MonoBehaviour
+public class PersistentObject : Singleton<PersistentObject>
 {
-    void Awake()
+    override protected void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 }

@@ -22,6 +22,7 @@ public class ResultCanvas : MonoBehaviour
         homeButton.onClick.AddListener(OnHomeButtonClicked);
         restartButton.onClick.AddListener(OnRestartButtonClicked);
         nextLevelButton.onClick.AddListener(OnNextLevelButtonClicked);
+        resultPanel.SetActive(false);
 
         PublicEvents.OnLevelEnded += ShowResult;
     }
@@ -37,6 +38,8 @@ public class ResultCanvas : MonoBehaviour
 
     private void OnHomeButtonClicked()
     {
+        SceneController.Instance.LoadAddessableScene(SceneDatabase.MAIN_MENU);
+
         TurnOffPanel();
     }
 

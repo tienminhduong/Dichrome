@@ -41,7 +41,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
     {
         if (_instance != null)
         {
-            Destroy(_instance);
+            Destroy(gameObject);
         }
         else
         {

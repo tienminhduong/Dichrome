@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -8,13 +9,36 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private List<AssetReference> levelReferences;
     private int currentLevelIndex = -1;
     private GameObject currentLevelInstance;
+    private int nextLevelToLoad = 0;
 
-    void Start()
+    void OnEnable()
     {
-        // Get level data saved, if not load the first level
-        LoadLevelWithIndex(0);
+        SceneController.OnSceneLoadEnded += HandleSceneLoadEnded;
+        SceneController.OnSceneUnloadStarted += HandleSceneUnloadStarted;
     }
 
+    void OnDisable()
+    {
+        SceneController.OnSceneLoadEnded -= HandleSceneLoadEnded;
+        SceneController.OnSceneUnloadStarted -= HandleSceneUnloadStarted;
+    }
+
+    private void HandleSceneLoadEnded(string sceneAddress)
+    {
+        if (sceneAddress == SceneDatabase.GAMEPLAY)
+        {
+            if (nextLevelToLoad >= 0 && nextLevelToLoad < levelReferences.Count)
+                LoadLevelWithIndex(nextLevelToLoad);
+            else
+                LogService.LogError($"Invalid next level index: {nextLevelToLoad}. Please ensure the index is within the range of available levels.");
+        }
+    }
+
+    private void HandleSceneUnloadStarted(string sceneAddress)
+    {
+        if (sceneAddress == SceneDatabase.GAMEPLAY)
+            UnloadCurrentLevel();
+    }
 
     public void LoadLevelWithIndex(int index)
     {
@@ -93,5 +117,17 @@ public class LevelManager : Singleton<LevelManager>
         var currentLevel = currentLevelIndex;
         UnloadCurrentLevel();
         LoadLevelWithIndex(currentLevel);
+    }
+
+    public void SetNextLevelToLoad(int index)
+    {
+        if (index < 0 || index >= levelReferences.Count)
+        {
+            LogService.LogError($"Invalid next level index: {index}. Please ensure the index is within the range of available levels.");
+            return;
+        }
+
+        nextLevelToLoad = index;
+        LogService.Log($"Next level to load set to {nextLevelToLoad}.");
     }
 }

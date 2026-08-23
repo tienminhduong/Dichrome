@@ -252,13 +252,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6514640819585379959, guid: f66eec77207fae347902231fac197a97, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8712994468091257840, guid: f66eec77207fae347902231fac197a97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1150.065
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8712994468091257840, guid: f66eec77207fae347902231fac197a97, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 568.7001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8712994468091257840, guid: f66eec77207fae347902231fac197a97, type: 3}
       propertyPath: m_LocalPosition.z
@@ -308,6 +312,7 @@ GameObject:
   - component: {fileID: 241824007}
   - component: {fileID: 241824009}
   - component: {fileID: 241824008}
+  - component: {fileID: 241824010}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -374,6 +379,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241824006}
   m_CullTransparentMesh: 1
+--- !u!114 &241824010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241824006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3164858be3d166647a53b3ab1b6b604c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuPanel
+  startButton: {fileID: 162992116}
+  continueButton: {fileID: 749347012}
 --- !u!1 &646485784
 GameObject:
   m_ObjectHideFlags: 0
