@@ -136,6 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511d1295ebb3eb843853f795cf701657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStateManager
+  requireWinGatesToWin: 0
 --- !u!1 &4754693893426319629
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +308,16 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   - m_AssetGUID: 49782c3b94922c6428b0107e61978e84
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 8f2c0520798879341a052e85d3ad7fb8
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: 68abf7d80de2a6d4888fa4b050f2f380
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

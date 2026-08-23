@@ -82,13 +82,20 @@ public class LevelInfo : MonoBehaviour
 
     private async UniTask LoadBlankTurnIcon(int amount)
     {
-        for (int i = activeTurnIcons.Count - 1; i >= amount; i--)
+        // for (int i = activeTurnIcons.Count - 1; i >= amount; i--)
+        // {
+        //     Image iconToDeactivate = activeTurnIcons[i];
+        //     iconToDeactivate.gameObject.SetActive(false);
+        //     unusedTurnIcons.Enqueue(iconToDeactivate);
+        //     activeTurnIcons.RemoveAt(i);
+        // }
+        // clear all
+        foreach (var icon in activeTurnIcons)
         {
-            Image iconToDeactivate = activeTurnIcons[i];
-            iconToDeactivate.gameObject.SetActive(false);
-            unusedTurnIcons.Enqueue(iconToDeactivate);
-            activeTurnIcons.RemoveAt(i);
+            icon.gameObject.SetActive(false);
+            unusedTurnIcons.Enqueue(icon);
         }
+        activeTurnIcons.Clear();
 
         while (activeTurnIcons.Count < amount)
         {
@@ -123,6 +130,8 @@ public class LevelInfo : MonoBehaviour
                 }
             }
         }
+
+        activeTurnIcons.Sort((a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
 
         foreach (var icon in activeTurnIcons)
         {
