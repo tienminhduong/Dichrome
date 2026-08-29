@@ -82,14 +82,6 @@ public class LevelInfo : MonoBehaviour
 
     private async UniTask LoadBlankTurnIcon(int amount)
     {
-        // for (int i = activeTurnIcons.Count - 1; i >= amount; i--)
-        // {
-        //     Image iconToDeactivate = activeTurnIcons[i];
-        //     iconToDeactivate.gameObject.SetActive(false);
-        //     unusedTurnIcons.Enqueue(iconToDeactivate);
-        //     activeTurnIcons.RemoveAt(i);
-        // }
-        // clear all
         foreach (var icon in activeTurnIcons)
         {
             icon.gameObject.SetActive(false);
@@ -140,6 +132,8 @@ public class LevelInfo : MonoBehaviour
             else
                 Debug.LogWarning("No sprite found for blank direction.");
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(turnIconsContainer);
     }
 
     private void LoadTurnIconDictionary()
