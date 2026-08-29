@@ -1807,7 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level
   levelConfigData:
-    turnLimit: 10
+    turnLimit: 4
     blackPlayerDelay: 1
     whitePlayerDelay: 2
   characterController: {fileID: 875297787606226601}
