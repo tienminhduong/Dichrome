@@ -7,6 +7,8 @@ public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
 {
     public static Action<Vector2> Move;
     public static Action Swap;
+    public static event Action NextDialogue;
+    public static event Action Restart;
 
     private static bool isInputLocked = false;
     public static void SetLockInput(bool isLocked)
@@ -91,6 +93,22 @@ public class InputHandler : MonoBehaviour, IPlayerActions, IUIActions
         if (context.performed)
         {
             Swap?.Invoke();
+        }
+    }
+
+    public void OnNextDialogue(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            NextDialogue?.Invoke();
+        }
+    }
+
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Restart?.Invoke();
         }
     }
 }

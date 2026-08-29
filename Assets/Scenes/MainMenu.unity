@@ -252,18 +252,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PersistentObject
       objectReference: {fileID: 0}
-    - target: {fileID: 8347738816814881636, guid: f66eec77207fae347902231fac197a97, type: 3}
-      propertyPath: tutorialLines.Array.data[2].lines.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347738816814881636, guid: f66eec77207fae347902231fac197a97, type: 3}
-      propertyPath: 'tutorialLines.Array.data[2].lines.Array.data[0]'
-      value: '"Hey I''m stuck!"'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8347738816814881636, guid: f66eec77207fae347902231fac197a97, type: 3}
-      propertyPath: 'tutorialLines.Array.data[2].lines.Array.data[1]'
-      value: '"Can that teleport gate help me out?"'
-      objectReference: {fileID: 0}
     - target: {fileID: 8712994468091257840, guid: f66eec77207fae347902231fac197a97, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -1055,14 +1055,16 @@ MonoBehaviour:
   - levelIndex: 0
     lines:
     - This is a game about a weird world with 2 sides
-    - Press 'F' to check the other side
+    - Press 'F' or flip button to check the other side
+    - Also there's a restart button on the top left, or press 'R'
   - levelIndex: 1
     lines:
     - '"Can the other world be different from this world?"'
     - '"Do we both have to win at the same time?"'
   - levelIndex: 4
     lines:
-    - Teleport gate can make character travel faster
+    - '"Hey I''m stuck!"'
+    - '"Can that teleport gate help me out?"'
   - levelIndex: 6
     lines:
     - What is this weird block? How can I unblock this block?

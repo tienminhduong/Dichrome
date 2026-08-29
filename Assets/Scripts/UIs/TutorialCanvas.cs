@@ -37,15 +37,21 @@ public class TutorialCanvas : MonoBehaviour
     void OnEnable()
     {
         nextButton.onClick.AddListener(HandleDialogueTapped);
+        InputHandler.NextDialogue += HandleDialogueTapped;
     }
 
     void OnDisable()
     {
         nextButton.onClick.RemoveListener(HandleDialogueTapped);
+        InputHandler.NextDialogue -= HandleDialogueTapped;
     }
 
     private void HandleDialogueTapped()
     {
+        if (nextButton.gameObject.activeSelf == false)
+        {
+            return;
+        }
         if (isTyping)
         {
             EndCurrentDialogueEarly();

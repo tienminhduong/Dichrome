@@ -9,14 +9,24 @@ public class SettingButtons : MonoBehaviour
 
     void OnEnable()
     {
-        restartButton?.onClick.AddListener(RestartGame);
         homeButton?.onClick.AddListener(GoToMainMenu);
+
+        if (restartButton != null)
+        {
+            InputHandler.Restart += RestartGame;
+            restartButton?.onClick.AddListener(RestartGame);
+        }
     }
 
     void OnDisable()
     {
-        restartButton?.onClick.RemoveListener(RestartGame);
         homeButton?.onClick.RemoveListener(GoToMainMenu);
+
+        if (restartButton != null)
+        {
+            InputHandler.Restart -= RestartGame;
+            restartButton?.onClick.RemoveListener(RestartGame);
+        }
     }
 
     private void GoToMainMenu()
